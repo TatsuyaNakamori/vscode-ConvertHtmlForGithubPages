@@ -1,27 +1,33 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+// ============================================================
+// Copyright (c) 2021 Tatsuya Nakamori. All rights reserved.
+// See LICENSE in the project root for license information.
+// ============================================================
+
 import * as vscode from 'vscode';
+import { GithubPagesTaskProvider } from './githubPagesTaskProvider';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+let customTaskProvider: vscode.Disposable | undefined;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "htmlgithubpages" is now active!');
+export function activate(_context: vscode.ExtensionContext): void {
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (!workspaceFolders) {
+        return;
+    }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('htmlgithubpages.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
+    const workspaceFolder:string = workspaceFolders.toString();
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from htmlgithubpages!');
-	});
-
-	context.subscriptions.push(disposable);
+    customTaskProvider = vscode.tasks.registerTaskProvider(
+        GithubPagesTaskProvider.CustomBuildScriptType,
+        new GithubPagesTaskProvider(workspaceFolder)
+    );
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate(): void {
+    if (customTaskProvider) {
+        customTaskProvider.dispose();
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "ext.description": "Github PagesでHTML/CSSのレイアウトが正しく表示されるようにデータをコンバートします。",
+
+    "conf.source.fromTo": "コンバートするデータフォルダと、出力するフォルダを指定します。"
+}

@@ -1,0 +1,5 @@
+{
+    "ext.description": "Convert the data so that the HTML/CSS layout is displayed correctly in Github Pages.",
+
+    "conf.source.fromTo": "Specify the data folder to be converted and the folder to be output."
+}

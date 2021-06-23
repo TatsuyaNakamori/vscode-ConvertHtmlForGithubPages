@@ -1,15 +1,39 @@
 {
   "name": "htmlgithubpages",
   "displayName": "htmlgithubpages",
-  "description": "",
+  "description": "%ext.description%",
   "version": "0.0.1",
+  "publisher": "TatsuyaNakamori",
   "engines": {
     "vscode": "^1.46.0"
   },
+  "galleryBanner": {
+    "color": "#C0C0C8",
+    "theme": "dark"
+  },
+  "icon": "resources/icon/extension_main.png",
   "categories": [
     "Other"
   ],
+  "license": "MIT",
+  "preview": true,
+  "keywords": [
+      "github",
+      "pages",
+      "html",
+      "css",
+      "jekyll"
+  ],
+  "homepage": "https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages.git"
+  },
+  "bugs": {
+      "url": "https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues"
+  },
   "activationEvents": [
+    "onCommand:workbench.action.tasks.runTask",
     "onCommand:htmlgithubpages.helloWorld"
   ],
   "main": "./out/extension.js",
@@ -19,7 +43,49 @@
         "command": "htmlgithubpages.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "configuration": [
+      {
+        "title": "Github Pages",
+        "properties": {
+          "ConvertHtmlForGithubPages.source.fromTo": {
+            "type": "object",
+            "properties": {
+              "From": {
+                "type": "string"
+              },
+              "To": {
+                "type": "string"
+              }
+            },
+            "default": {
+              "From": "./",
+              "To": "./docs"
+            },
+            "uniqueItems": true,
+            "markdownDescription": "%conf.source.fromTo%"
+          }
+        }
+      }
+    ],
+    "taskDefinitions": [
+      {
+          "type": "to github pages",
+          "required": [
+              "command",
+              "label"
+          ],
+          "properties": {
+              "command": {
+                  "type": "string",
+                  "description": "test- test"
+              },
+              "label": {
+                  "type": "string"
+              }
+          }
+      }
+  ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

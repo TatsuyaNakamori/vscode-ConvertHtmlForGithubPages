@@ -59,7 +59,7 @@
               }
             },
             "default": {
-              "From": "./",
+              "From": "./build/html",
               "To": "./docs"
             },
             "uniqueItems": true,

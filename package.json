@@ -46,7 +46,7 @@
     ],
     "configuration": [
       {
-        "title": "Github Pages",
+        "title": "GitHub Pages",
         "properties": {
           "ConvertHtmlForGithubPages.source.fromTo": {
             "type": "object",

@@ -33,8 +33,7 @@
       "url": "https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues"
   },
   "activationEvents": [
-    "onCommand:workbench.action.tasks.runTask",
-    "onCommand:htmlgithubpages.helloWorld"
+    "onCommand:workbench.action.tasks.runTask"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -70,22 +69,18 @@
     ],
     "taskDefinitions": [
       {
-          "type": "to github pages",
-          "required": [
-              "command",
-              "label"
-          ],
-          "properties": {
-              "command": {
-                  "type": "string",
-                  "description": "test- test"
-              },
-              "label": {
-                  "type": "string"
-              }
+        "type": "github pages",
+        "required": [
+            "flags"
+        ],
+        "properties": {
+          "flags": {
+              "type": "array",
+              "description": "Data set with [taskID, label]."
           }
+        }
       }
-  ]
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

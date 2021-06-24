@@ -1,5 +1,9 @@
 {
     "ext.description": "Convert the data so that the HTML/CSS layout is displayed correctly in Github Pages.",
 
+    "task.nojekyll.root.label": "Create a \".nojekyll\" file in [workspaceFolder(./)]",
+    "task.nojekyll.docs.label": "Create a \".nojekyll\" file in [./docs]",
+    "task.toHTML.label": "Convert to HTML for GitHub Pages",
+
     "conf.source.fromTo": "Specify the data folder to be converted and the folder to be output."
 }

@@ -1,5 +1,9 @@
 {
     "ext.description": "Github PagesでHTML/CSSのレイアウトが正しく表示されるようにデータをコンバートします。",
 
+    "task.nojekyll.root.label": "\".nojekyll\"ファイルを [workspaceFolder(./)] に作成する",
+    "task.nojekyll.docs.label": "\".nojekyll\"ファイルを [./docs] に作成する",
+    "task.toHTML.label": "GitHub Pages用のHTMLに変換する",
+
     "conf.source.fromTo": "コンバートするデータフォルダと、出力するフォルダを指定します。"
 }

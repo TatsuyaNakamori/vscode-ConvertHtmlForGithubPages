@@ -18,10 +18,14 @@ export function activate(_context: vscode.ExtensionContext): void {
         return;
     }
 
-    const workspaceFolder:string = workspaceFolders.toString();
+    const workspaceFolder:string = workspaceFolders[0].uri.fsPath;
+    console.log("workspaceFolders");
+    console.log(workspaceFolders);
+    console.log("workspaceFolder");
+    console.log(workspaceFolder);
 
     customTaskProvider = vscode.tasks.registerTaskProvider(
-        GithubPagesTaskProvider.CustomBuildScriptType,
+        GithubPagesTaskProvider.taskType,
         new GithubPagesTaskProvider(workspaceFolder)
     );
 }

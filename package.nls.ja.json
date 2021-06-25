@@ -5,5 +5,18 @@
     "task.nojekyll.docs.label": "\".nojekyll\"ファイルを [./docs] に作成する",
     "task.toHTML.label": "GitHub Pages用のHTMLに変換する",
 
-    "conf.source.fromTo": "コンバートするデータフォルダと、出力するフォルダを指定します。"
+    "task.nojekyll.dir.exists": "ディレクトリが存在していることが確認できました。",
+    "task.nojekyll.dir.not.exists": "ディレクトリが存在していません。",
+
+    "task.nojekyll.docs.dir.create": "docsフォルダを作成します。",
+    "task.nojekyll.docs.dir.not.created": "docsフォルダが作られませんでした。",
+
+    "task.nojekyll.file.exists": ".nojekyllファイルが存在します。",
+    "task.nojekyll.file.create": ".nojekyllファイルを作成します。",
+    "task.nojekyll.file.created": "成功... .nojekyllファイルが作成されました。",
+    "task.nojekyll.file.not.created": ".nojekyllファイルが作成できませんでした。",
+
+    "task.nojekyll.ends.process": "処理を終了します。",
+
+    "conf.converthtmlforgithubpages.settings": "コンバートするデータフォルダと、出力するフォルダを指定します。"
 }

@@ -7,6 +7,7 @@
 // See LICENSE in the project root for license information.
 // ============================================================
 import * as path from 'path';
+import * as fs from 'fs'
 import * as vscode from 'vscode';
 import * as i18n from './i18n';
 
@@ -62,6 +63,7 @@ export class GithubPagesTaskProvider implements vscode.TaskProvider {
                 flags
             };
         }
+
         return new vscode.Task(
             definition,
             vscode.TaskScope.Workspace,
@@ -79,8 +81,6 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
     private closeEmitter = new vscode.EventEmitter<number>();
     onDidWrite: vscode.Event<string> = this.writeEmitter.event;
     onDidClose?: vscode.Event<number> = this.closeEmitter.event;
-
-    private fileWatcher: vscode.FileSystemWatcher | undefined;
 
     constructor(
         private workspaceRoot: string,
@@ -105,22 +105,82 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
         }
     }
 
-    close(): void {
-        if (this.fileWatcher) {
-            this.fileWatcher.dispose();
-        }
-    }
+    close(): void {}
 
     private async createNojekyll(directory:string) {
         return new Promise<void>((resolve) => {
-            this.writeEmitter.fire(`Test createNojekyll...${directory}\r\n`);
-            this.writeEmitter.fire(`    ${this.flags}\r\n`);
+            const nojekyllFilePath = path.join(directory, ".nojekyll");
 
-            console.log(directory);
+            this.writeEmitter.fire(`Create .nojekyll file...\r\n`);
+            this.writeEmitter.fire(`    Directory: ${directory}\r\n`);
+            this.writeEmitter.fire(`    .nojekyll: ${nojekyllFilePath}\r\n\r\n`);
 
+            const dirExists:boolean = fs.existsSync(directory);
+            if (dirExists) {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.dir.exists')}\r\n`);
+            } else {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.dir.not.exists')}\r\n`);
+            }
 
-            this.closeEmitter.fire(0);
-            resolve();
+            // 作成するディレクトリが存在することを確実にする
+            // (Rootが存在していない場合/docsフォルダが作られなかった場合は、処理終了[エラー終了])
+            const createDirType = this.flags[0];
+            if (createDirType == "nojekyllRoot" && !dirExists) {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.ends.process')}\r\n\r\n`);
+                this.closeEmitter.fire(2);
+                resolve();
+                return
+
+            } else if (createDirType == "nojekyllDocs") {
+                if (!dirExists) {
+                    this.writeEmitter.fire(`${i18n.localize('task.nojekyll.docs.dir.create')}\r\n`);
+                    this.writeEmitter.fire(`    ${directory}\r\n`);
+                    fs.mkdirSync(directory, {recursive: true});
+                }
+
+                const docDirExists:boolean = fs.existsSync(directory);
+                if (!docDirExists) {
+                    this.writeEmitter.fire(`${i18n.localize('task.nojekyll.docs.dir.not.created')}\r\n`);
+                    this.writeEmitter.fire(`${i18n.localize('task.nojekyll.ends.process')}\r\n\r\n`);
+                    this.closeEmitter.fire(2);
+                    resolve();
+                    return
+                }
+            }
+
+            // .nojekyll ファイルがあれば、処理終了[正常終了]
+            let fileExists:boolean = fs.existsSync(nojekyllFilePath);
+            if (fileExists) {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.file.exists')}\r\n`);
+                this.writeEmitter.fire(`    ${nojekyllFilePath}\r\n`);
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.ends.process')}\r\n\r\n`);
+                this.closeEmitter.fire(0);
+                resolve();
+                return
+            }
+
+            // Create .nojekyll file (empty)
+            this.writeEmitter.fire(`${i18n.localize('task.nojekyll.file.create')}\r\n`);
+            this.writeEmitter.fire(`    ${nojekyllFilePath}\r\n`);
+            fs.closeSync(
+                fs.openSync(nojekyllFilePath, 'w')
+            );
+
+            // .nojekyllが作られたかチェックし、終了する
+            fileExists = fs.existsSync(nojekyllFilePath);
+            if (fileExists) {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.file.created')}\r\n`);
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.ends.process')}\r\n\r\n`);
+                this.closeEmitter.fire(0);
+                resolve();
+                return
+            } else {
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.file.not.created')}\r\n`);
+                this.writeEmitter.fire(`${i18n.localize('task.nojekyll.ends.process')}\r\n\r\n`);
+                this.closeEmitter.fire(2);
+                resolve();
+                return
+            }
         });
     }
 

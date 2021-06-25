@@ -47,7 +47,7 @@
       {
         "title": "GitHub Pages",
         "properties": {
-          "ConvertHtmlForGithubPages.source.fromTo": {
+          "ConvertHtmlForGithubPages.settings": {
             "type": "object",
             "properties": {
               "From": {
@@ -55,14 +55,18 @@
               },
               "To": {
                 "type": "string"
+              },
+              "URL for GitHub Pages": {
+                "type": "string"
               }
             },
             "default": {
               "From": "./build/html",
-              "To": "./docs"
+              "To": "./docs",
+              "URL for GitHub Pages": "https://<USERNAME>.github.io/<REPOSITORY>/"
             },
             "uniqueItems": true,
-            "markdownDescription": "%conf.source.fromTo%"
+            "markdownDescription": "%conf.converthtmlforgithubpages.settings%"
           }
         }
       }

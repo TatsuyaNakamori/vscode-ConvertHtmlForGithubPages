@@ -5,5 +5,18 @@
     "task.nojekyll.docs.label": "Create a \".nojekyll\" file in [./docs]",
     "task.toHTML.label": "Convert to HTML for GitHub Pages",
 
-    "conf.source.fromTo": "Specify the data folder to be converted and the folder to be output."
+    "task.nojekyll.dir.exists": "Confirmed that the directory exists.",
+    "task.nojekyll.dir.not.exists": "The directory does not exist.",
+
+    "task.nojekyll.docs.dir.create": "Create a docs folder.",
+    "task.nojekyll.docs.dir.not.created": "The docs folder was not created.",
+
+    "task.nojekyll.file.exists": "The .nojekyll file exists.",
+    "task.nojekyll.file.create": "Create a .nojekyll file.",
+    "task.nojekyll.file.created": "Success... The .nojekyll file has been created.",
+    "task.nojekyll.file.not.created": "Failed to create .nojekyll file.",
+
+    "task.nojekyll.ends.process": "Ends the process",
+
+    "conf.converthtmlforgithubpages.settings": "Specify the data folder to be converted and the folder to be output."
 }

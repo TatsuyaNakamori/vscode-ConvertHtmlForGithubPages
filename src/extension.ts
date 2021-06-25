@@ -10,7 +10,7 @@
 import * as vscode from 'vscode';
 import { GithubPagesTaskProvider } from './githubPagesTaskProvider';
 
-let customTaskProvider: vscode.Disposable | undefined;
+let taskProvider: vscode.Disposable | undefined;
 
 export function activate(_context: vscode.ExtensionContext): void {
     const workspaceFolders = vscode.workspace.workspaceFolders;
@@ -24,14 +24,14 @@ export function activate(_context: vscode.ExtensionContext): void {
     console.log("workspaceFolder");
     console.log(workspaceFolder);
 
-    customTaskProvider = vscode.tasks.registerTaskProvider(
+    taskProvider = vscode.tasks.registerTaskProvider(
         GithubPagesTaskProvider.taskType,
         new GithubPagesTaskProvider(workspaceFolder)
     );
 }
 
 export function deactivate(): void {
-    if (customTaskProvider) {
-        customTaskProvider.dispose();
+    if (taskProvider) {
+        taskProvider.dispose();
     }
 }

@@ -1,22 +1,23 @@
 {
-    "ext.description": "Github PagesでHTML/CSSのレイアウトが正しく表示されるようにデータをコンバートします。",
+    "htmlgithubpages.ext.description": "Github PagesでHTML/CSSのレイアウトが正しく表示されるようにデータをコンバートします。",
 
-    "task.nojekyll.root.label": "\".nojekyll\"ファイルを [workspaceFolder(./)] に作成する",
-    "task.nojekyll.docs.label": "\".nojekyll\"ファイルを [./docs] に作成する",
-    "task.toHTML.label": "GitHub Pages用のHTMLに変換する",
+    "htmlgithubpages.task.nojekyll.root.label": "\".nojekyll\"ファイルを [workspaceFolder(./)] に作成する",
+    "htmlgithubpages.task.nojekyll.docs.label": "\".nojekyll\"ファイルを [./docs] に作成する",
+    "htmlgithubpages.task.nojekyll.dir.exists": "ディレクトリが存在していることが確認できました。",
+    "htmlgithubpages.task.nojekyll.dir.not.exists": "ディレクトリが存在していません。",
+    "htmlgithubpages.task.nojekyll.docs.dir.create": "docsフォルダを作成します。",
+    "htmlgithubpages.task.nojekyll.docs.dir.not.created": "docsフォルダが作られませんでした。",
+    "htmlgithubpages.task.nojekyll.file.exists": ".nojekyllファイルが存在します。",
+    "htmlgithubpages.task.nojekyll.file.create": ".nojekyllファイルを作成します。",
+    "htmlgithubpages.task.nojekyll.file.created": ".nojekyllファイルが作成されました。",
+    "htmlgithubpages.task.nojekyll.file.not.created": ".nojekyllファイルが作成できませんでした。",
+    "htmlgithubpages.task.nojekyll.ends.process": "処理を終了します。",
 
-    "task.nojekyll.dir.exists": "ディレクトリが存在していることが確認できました。",
-    "task.nojekyll.dir.not.exists": "ディレクトリが存在していません。",
+    "htmlgithubpages.task.success": "成功",
+    "htmlgithubpages.task.failed": "失敗",
 
-    "task.nojekyll.docs.dir.create": "docsフォルダを作成します。",
-    "task.nojekyll.docs.dir.not.created": "docsフォルダが作られませんでした。",
+    "htmlgithubpages.task.toHTML.label": "GitHub Pages用のHTMLに変換する",
+    "htmlgithubpages.task.toHTML.getconfig.error": "設定が読み込めませんでした。",
 
-    "task.nojekyll.file.exists": ".nojekyllファイルが存在します。",
-    "task.nojekyll.file.create": ".nojekyllファイルを作成します。",
-    "task.nojekyll.file.created": "成功... .nojekyllファイルが作成されました。",
-    "task.nojekyll.file.not.created": ".nojekyllファイルが作成できませんでした。",
-
-    "task.nojekyll.ends.process": "処理を終了します。",
-
-    "conf.converthtmlforgithubpages.settings": "コンバートするデータフォルダと、出力するフォルダを指定します。"
+    "htmlgithubpages.conf.converthtmlforgithubpages.settings": "コンバートするデータフォルダと、出力するフォルダを指定します。"
 }

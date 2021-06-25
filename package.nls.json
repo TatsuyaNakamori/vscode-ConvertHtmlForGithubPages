@@ -1,22 +1,23 @@
 {
-    "ext.description": "Convert the data so that the HTML/CSS layout is displayed correctly in Github Pages.",
+    "htmlgithubpages.ext.description": "Convert the data so that the HTML/CSS layout is displayed correctly in Github Pages.",
 
-    "task.nojekyll.root.label": "Create a \".nojekyll\" file in [workspaceFolder(./)]",
-    "task.nojekyll.docs.label": "Create a \".nojekyll\" file in [./docs]",
-    "task.toHTML.label": "Convert to HTML for GitHub Pages",
+    "htmlgithubpages.task.nojekyll.root.label": "Create a \".nojekyll\" file in [workspaceFolder(./)]",
+    "htmlgithubpages.task.nojekyll.docs.label": "Create a \".nojekyll\" file in [./docs]",
+    "htmlgithubpages.task.nojekyll.dir.exists": "Confirmed that the directory exists.",
+    "htmlgithubpages.task.nojekyll.dir.not.exists": "The directory does not exist.",
+    "htmlgithubpages.task.nojekyll.docs.dir.create": "Create a docs folder.",
+    "htmlgithubpages.task.nojekyll.docs.dir.not.created": "The docs folder was not created.",
+    "htmlgithubpages.task.nojekyll.file.exists": "The .nojekyll file exists.",
+    "htmlgithubpages.task.nojekyll.file.create": "Create a .nojekyll file.",
+    "htmlgithubpages.task.nojekyll.file.created": "The .nojekyll file has been created.",
+    "htmlgithubpages.task.nojekyll.file.not.created": "Failed to create .nojekyll file.",
+    "htmlgithubpages.task.nojekyll.ends.process": "Ends the process",
 
-    "task.nojekyll.dir.exists": "Confirmed that the directory exists.",
-    "task.nojekyll.dir.not.exists": "The directory does not exist.",
+    "htmlgithubpages.task.success": "Success",
+    "htmlgithubpages.task.failed": "Failed",
 
-    "task.nojekyll.docs.dir.create": "Create a docs folder.",
-    "task.nojekyll.docs.dir.not.created": "The docs folder was not created.",
+    "htmlgithubpages.task.toHTML.label": "Convert to HTML for GitHub Pages",
+    "htmlgithubpages.task.toHTML.getconfig.error": "Could not load configuration.",
 
-    "task.nojekyll.file.exists": "The .nojekyll file exists.",
-    "task.nojekyll.file.create": "Create a .nojekyll file.",
-    "task.nojekyll.file.created": "Success... The .nojekyll file has been created.",
-    "task.nojekyll.file.not.created": "Failed to create .nojekyll file.",
-
-    "task.nojekyll.ends.process": "Ends the process",
-
-    "conf.converthtmlforgithubpages.settings": "Specify the data folder to be converted and the folder to be output."
+    "htmlgithubpages.conf.converthtmlforgithubpages.settings": "Specify the data folder to be converted and the folder to be output."
 }

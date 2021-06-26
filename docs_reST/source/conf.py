@@ -26,7 +26,8 @@ author = 'Tatsuya Nakamori'
 version = '0.1'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+import time
+release = time.strftime('%Y-%m-%d')
 
 
 # -- General configuration ---------------------------------------------------
@@ -55,7 +56,7 @@ templates_path = ['_templates']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+# language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -76,6 +77,9 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = [
+    'custom.css',
+]
 
 # -- Extension configuration -------------------------------------------------
 

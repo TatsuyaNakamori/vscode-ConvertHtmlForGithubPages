@@ -7,7 +7,9 @@
 // See LICENSE in the project root for license information.
 // ============================================================
 import * as path from 'path';
-import * as fs from 'fs'
+import * as fs from 'fs';
+import * as fsex from 'fs-extra';
+import * as klawSync from 'klaw-sync';
 import * as vscode from 'vscode';
 import * as i18n from './i18n';
 
@@ -20,6 +22,37 @@ interface ConvertHtmlOptions {
     "From": string,
     "To": string,
     "URL for GitHub Pages": string
+}
+
+interface NojekyllTerminalMessages {
+    "createDirFileInfo": string,
+    "dirExists": string,
+    "dirNotExists": string,
+    "docsDirCreate": string,
+    "docsDirNotCreated": string,
+    "nojekyllExists": string,
+    "nojekyllCreate": string,
+    "nojekyllCreated": string,
+    "nojekyllNotCreated": string,
+    "endsProcess": string
+}
+
+interface ToHtmlTerminalMessages {
+    "start": string,
+    "end": string,
+    "end.success": string,
+    "checkConfig": string,
+    "checkConfig.source": string,
+    "checkConfig.target": string,
+    "checkConfig.giturl": string,
+    "checkConfig.source.error": string,
+    "checkConfig.target.error": string,
+    "checkConfig.giturl.error": string,
+    "checkConfig.ok": string,
+    "emptyDir": string,
+    "copyDir": string,
+    "fetchFiles": string,
+    "insertBaseTag": string
 }
 
 
@@ -110,43 +143,82 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
 
     close(): void {}
 
+    private nojekyllTerminalMessages(directory:string, nojekyllFilePath:string):NojekyllTerminalMessages {
+        const success = `${i18n.localize('htmlgithubpages.task.success')}`;
+        const failed  = `${i18n.localize('htmlgithubpages.task.failed')}`;
+
+        const createDirFileInfo = `Create .nojekyll file...\r\n` +
+                                  `    Directory: ${directory}\r\n` +
+                                  `    .nojekyll: ${nojekyllFilePath}\r\n\r\n`;
+
+        const docsDirCreate = `${i18n.localize('htmlgithubpages.task.nojekyll.docs.dir.create')}\r\n` +
+                              `    ${directory}\r\n`;
+
+        const docsDirNotCreated = `[\x1b[31m${failed}\x1b[0m] ` +
+                                  `${i18n.localize('htmlgithubpages.task.nojekyll.docs.dir.not.created')}\r\n`;
+
+        const nojekyllCreate = `${i18n.localize('htmlgithubpages.task.nojekyll.file.create')}\r\n` +
+                               `    ${nojekyllFilePath}\r\n`;
+
+
+        const nojekyllCreated = `[\x1b[34m${success}\x1b[0m] ` +
+                                `${i18n.localize('htmlgithubpages.task.nojekyll.file.created')}\r\n`;
+
+        const nojekyllNotCreated = `[\x1b[31m${failed}\x1b[0m] ` +
+                                   `${i18n.localize('htmlgithubpages.task.nojekyll.file.not.created')}\r\n`;
+
+        let terminalMessages:NojekyllTerminalMessages = {
+            "createDirFileInfo":  `${createDirFileInfo}`,
+
+            "dirExists":          `${i18n.localize('htmlgithubpages.task.nojekyll.dir.exists')}\r\n`,
+            "dirNotExists":       `${i18n.localize('htmlgithubpages.task.nojekyll.dir.not.exists')}\r\n`,
+
+            "docsDirCreate":      `${docsDirCreate}`,
+            "docsDirNotCreated":  `${docsDirNotCreated}`,
+
+            "nojekyllExists":     `${i18n.localize('htmlgithubpages.task.nojekyll.file.exists')}\r\n`,
+            "nojekyllCreate":     `${nojekyllCreate}`,
+            "nojekyllCreated":    `${nojekyllCreated}`,
+            "nojekyllNotCreated": `${nojekyllNotCreated}`,
+
+            "endsProcess":        `${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`,
+        }
+        return terminalMessages
+    }
+
     private async createNojekyll(directory:string) {
         return new Promise<void>((resolve) => {
             const nojekyllFilePath = path.join(directory, ".nojekyll");
 
-            const successLabel = `${i18n.localize('htmlgithubpages.task.success')}`;
-            const failedLabel = `${i18n.localize('htmlgithubpages.task.failed')}`;
-            this.writeEmitter.fire(`Create .nojekyll file...\r\n`);
-            this.writeEmitter.fire(`    Directory: ${directory}\r\n`);
-            this.writeEmitter.fire(`    .nojekyll: ${nojekyllFilePath}\r\n\r\n`);
+            // Generate a message to be displayed in the terminal
+            const terminalMessages = this.nojekyllTerminalMessages(directory, nojekyllFilePath);
+            this.writeEmitter.fire(`${terminalMessages["createDirFileInfo"]}`);
 
             const dirExists:boolean = fs.existsSync(directory);
             if (dirExists) {
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.dir.exists')}\r\n`);
+                this.writeEmitter.fire(`${terminalMessages["dirExists"]}`);
             } else {
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.dir.not.exists')}\r\n`);
+                this.writeEmitter.fire(`${terminalMessages["dirNotExists"]}`);
             }
 
             // 作成するディレクトリが存在することを確実にする
             // (Rootが存在していない場合/docsフォルダが作られなかった場合は、処理終了[エラー終了])
             const createDirType = this.flags[0];
             if (createDirType == "nojekyllRoot" && !dirExists) {
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`);
+                this.writeEmitter.fire(`${terminalMessages["endsProcess"]}`);
                 this.closeEmitter.fire(2);
                 resolve();
                 return
 
             } else if (createDirType == "nojekyllDocs") {
                 if (!dirExists) {
-                    this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.docs.dir.create')}\r\n`);
-                    this.writeEmitter.fire(`    ${directory}\r\n`);
+                    this.writeEmitter.fire(`${terminalMessages["docsDirCreate"]}`);
                     fs.mkdirSync(directory, {recursive: true});
                 }
 
-                const docDirExists:boolean = fs.existsSync(directory);
-                if (!docDirExists) {
-                    this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.docs.dir.not.created')}\r\n`);
-                    this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`);
+                if (!fs.existsSync(directory)) {
+                    this.writeEmitter.fire(`${terminalMessages["docsDirNotCreated"]}`);
+                    this.writeEmitter.fire(`${terminalMessages["endsProcess"]}`);
                     this.closeEmitter.fire(2);
                     resolve();
                     return
@@ -154,39 +226,54 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
             }
 
             // .nojekyll ファイルがあれば、処理終了[正常終了]
-            let fileExists:boolean = fs.existsSync(nojekyllFilePath);
-            if (fileExists) {
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.file.exists')}\r\n`);
-                this.writeEmitter.fire(`    ${nojekyllFilePath}\r\n`);
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`);
+            if (fs.existsSync(nojekyllFilePath)) {
+                this.writeEmitter.fire(`${terminalMessages["nojekyllExists"]}`);
+                this.writeEmitter.fire(`${terminalMessages["endsProcess"]}`);
                 this.closeEmitter.fire(0);
                 resolve();
                 return
             }
 
-            // Create .nojekyll file (empty)
-            this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.file.create')}\r\n`);
-            this.writeEmitter.fire(`    ${nojekyllFilePath}\r\n`);
-            fs.closeSync(
-                fs.openSync(nojekyllFilePath, 'w')
-            );
+            // Create .nojekyll file
+            this.writeEmitter.fire(`${terminalMessages["nojekyllCreate"]}`);
+            fs.closeSync(fs.openSync(nojekyllFilePath, 'w'));
 
             // .nojekyllが作られたかチェックし、終了する
-            fileExists = fs.existsSync(nojekyllFilePath);
-            if (fileExists) {
-                this.writeEmitter.fire(`[\x1b[34m${successLabel}\x1b[0m] ${i18n.localize('htmlgithubpages.task.nojekyll.file.created')}\r\n`);
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`);
+            if (fs.existsSync(nojekyllFilePath)) {
+                this.writeEmitter.fire(`${terminalMessages["nojekyllCreated"]}`);
+                this.writeEmitter.fire(`${terminalMessages["endsProcess"]}`);
                 this.closeEmitter.fire(0);
                 resolve();
                 return
             } else {
-                this.writeEmitter.fire(`[\x1b[31m${failedLabel}\x1b[0m] ${i18n.localize('htmlgithubpages.task.nojekyll.file.not.created')}\r\n`);
-                this.writeEmitter.fire(`${i18n.localize('htmlgithubpages.task.nojekyll.ends.process')}\r\n\r\n`);
+                this.writeEmitter.fire(`${terminalMessages["nojekyllNotCreated"]}`);
+                this.writeEmitter.fire(`${terminalMessages["endsProcess"]}`);
                 this.closeEmitter.fire(2);
                 resolve();
                 return
             }
         });
+    }
+
+    private toHtmlTerminalMessages():ToHtmlTerminalMessages {
+        let terminalMessages:ToHtmlTerminalMessages = {
+            "start":                    `${i18n.localize('htmlgithubpages.task.tohtml.start')}\r\n`,
+            "end":                      `${i18n.localize('htmlgithubpages.task.tohtml.end')}\r\n\r\n`,
+            "end.success":              `\x1b[34m${i18n.localize('htmlgithubpages.task.tohtml.end.success')}\x1b[0m\r\n\r\n`,
+            "checkConfig":              `${i18n.localize('htmlgithubpages.task.tohtml.checkConfig')}\r\n`,
+            "checkConfig.source":       `${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.source')}\r\n`,
+            "checkConfig.target":       `${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.target')}\r\n`,
+            "checkConfig.giturl":       `${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.giturl')}\r\n`,
+            "checkConfig.source.error": `\x1b[31m${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.source.error')}\x1b[0m\r\n`,
+            "checkConfig.target.error": `\x1b[31m${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.target.error')}\x1b[0m\r\n`,
+            "checkConfig.giturl.error": `\x1b[31m${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.giturl.error')}\x1b[0m\r\n`,
+            "checkConfig.ok":           `${i18n.localize('htmlgithubpages.task.tohtml.checkConfig.ok')}\r\n\r\n`,
+            "emptyDir":                 `${i18n.localize('htmlgithubpages.task.tohtml.emptyDir')}\r\n`,
+            "copyDir":                  `${i18n.localize('htmlgithubpages.task.tohtml.copyDir')}\r\n`,
+            "fetchFiles":               `${i18n.localize('htmlgithubpages.task.tohtml.fetchFiles')}\r\n`,
+            "insertBaseTag":            `${i18n.localize('htmlgithubpages.task.tohtml.insertBaseTag')}\r\n`,
+        }
+        return terminalMessages
     }
 
     private async toHtmlToGithubPages() {
@@ -200,16 +287,22 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
             let target:string = options["To"];
             let gitUrl:string = options["URL for GitHub Pages"];
 
-            // ===================
+            // Generate a message to be displayed in the terminal
+            const terminalMessages = this.toHtmlTerminalMessages();
+            this.writeEmitter.fire(`${terminalMessages["start"]}`);
+            this.writeEmitter.fire(`${terminalMessages["checkConfig"]}`);
+
+            // =====================================================================
             // configの検証
-            // ===================
+            // =====================================================================
             // Whether or not the source path exists.
+            this.writeEmitter.fire(`${terminalMessages["checkConfig.source"]}`);
             if (!path.isAbsolute(source)) {
                 source = path.join(this.workspaceRoot, source);
             }
             if (!fs.existsSync(source)) {
-                console.error(source);
-
+                this.writeEmitter.fire(`${terminalMessages["checkConfig.source.error"]}`);
+                this.writeEmitter.fire(`${terminalMessages["end"]}`);
                 this.closeEmitter.fire(2);
                 resolve();
                 return
@@ -217,6 +310,7 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
 
             // Whether the target directory exists or not
             // If not, create it.
+            this.writeEmitter.fire(`${terminalMessages["checkConfig.target"]}`);
             if (!path.isAbsolute(target)) {
                 target = path.join(this.workspaceRoot, target);
             }
@@ -224,8 +318,8 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
                 fs.mkdirSync(target, {recursive: true});
 
                 if (!fs.existsSync(target)) {
-                    console.error(target);
-
+                    this.writeEmitter.fire(`${terminalMessages["checkConfig.target.error"]}`);
+                    this.writeEmitter.fire(`${terminalMessages["end"]}`);
                     this.closeEmitter.fire(2);
                     resolve();
                     return
@@ -233,51 +327,91 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
             }
 
             // Make sure that the URL of the GitHub Pages is not left in the template.
+            this.writeEmitter.fire(`${terminalMessages["checkConfig.giturl"]}`);
             const regPlaceholder = /(<USERNAME>|<REPOSITORY>)/;
             const match = regPlaceholder.exec(gitUrl);
-
             if (match) {
-                console.error(gitUrl);
-
+                this.writeEmitter.fire(`${terminalMessages["checkConfig.giturl.error"]}`);
+                this.writeEmitter.fire(`${terminalMessages["end"]}`);
                 this.closeEmitter.fire(2);
                 resolve();
                 return
             }
+            const baseName = path.basename(this.workspaceRoot);
+            gitUrl = gitUrl.replace(/(\$\{DIR_NAME\})/, baseName);
 
+            this.writeEmitter.fire(`${terminalMessages["checkConfig.ok"]}`);
 
+            // .nojekyll が存在しているかどうか
+            const nojekyllFilePath = path.join(target, ".nojekyll");
+            const hasNojekyll:boolean = fs.existsSync(nojekyllFilePath);
 
-            this.writeEmitter.fire(`Workfolder...${this.workspaceRoot}\r\n`);
-            this.writeEmitter.fire(`Copy from...${source}\r\n`);
-            this.writeEmitter.fire(`Copy to...${target}\r\n`);
-            this.writeEmitter.fire(`URL for HitHub Pages...${gitUrl}\r\n`);
-            this.writeEmitter.fire(`    ${this.flags}\r\n`);
-            console.log(this.workspaceRoot);
+            this.writeEmitter.fire(`Workfolder... ${this.workspaceRoot}\r\n`);
+            this.writeEmitter.fire(`Copy from... ${source}\r\n`);
+            this.writeEmitter.fire(`Copy to... ${target}\r\n`);
+            this.writeEmitter.fire(`Has .nojekyll... ${hasNojekyll}\r\n`);
+            this.writeEmitter.fire(`URL for HitHub Pages... ${gitUrl}\r\n\r\n`);
 
-            "https://<USERNAME>.github.io/<REPOSITORY>/"
+            // =====================================================================
+            // targetフォルダ内のファイルを全て削除し、sourceのファイルをコピーする
+            // =====================================================================
+            this.writeEmitter.fire(`${terminalMessages["emptyDir"]}`);
+            fsex.emptyDirSync(target);
+            this.writeEmitter.fire(`${terminalMessages["copyDir"]}`);
+            fsex.copySync(source, target);
 
-            // ============================
-            // 全てのファイルをコピーする
-            // ============================
-
+            if (hasNojekyll) {
+                fs.closeSync(fs.openSync(nojekyllFilePath, 'w'));
+            }
 
             // ===========================================================================================
             // コピー先のフォルダ内のHTMLをスキャンし、フルパスとurlのペアを作る
             // pairsOfHtmlUrlList = [["c:/local/path/~/index.html", "https://~.github.io/~/index.html"]]
             // ===========================================================================================
-            let pairsOfHtmlUrlList:string[][] = []
+            this.writeEmitter.fire(`${terminalMessages["fetchFiles"]}`);
 
+            let pairsOfHtmlUrlList:string[][] = [];
+            const files = klawSync(target, {nodir: true});
+            for (let index = 0; index < files.length; index++) {
+                const file = files[index];
+                if (!file.path.endsWith(".html")) {
+                    continue
+                }
+
+                let href = "";
+                const relPath = file.path.replace(target, ".");
+                href = path.join(gitUrl, relPath);
+                href = href.replace(/\\/g, "/");
+
+                pairsOfHtmlUrlList.push([file.path, href]);
+            }
 
             // ================================================================
             // Insert the base tag after the head tag.
             // Open the file, extract the text (contents),
             // insert the base tag, and then write the text in the same file.
             // ================================================================
+            this.writeEmitter.fire(`${terminalMessages["insertBaseTag"]}`);
 
-            // const gitHtmlUrl = `${gitUrl}/${relPath}`;
-            // const baseTag = `<base href=\"${gitHtmlUrl}\">`;
+            const regHeadTag = /(<head>)/;
+            for (let index = 0; index < pairsOfHtmlUrlList.length; index++) {
+                const html = pairsOfHtmlUrlList[index][0];
+                const href = pairsOfHtmlUrlList[index][1];
 
+                let contents = fs.readFileSync(html, 'utf-8');
+                const match = regHeadTag.exec(contents);
+                if (!match) {continue}
 
+                const lastIndex   = match.index + 6;  // "<head>".length == 6
+                const before_head = contents.slice(0, lastIndex);
+                const base_tag    = `  <base href=\"${href}\">`;
+                const after_head  = contents.slice(lastIndex);
+                const newContents = `${before_head}\n${base_tag}${after_head}`;
 
+                fs.writeFileSync(html, newContents);
+            }
+
+            this.writeEmitter.fire(`${terminalMessages["end.success"]}`);
             this.closeEmitter.fire(0);
             resolve();
         });

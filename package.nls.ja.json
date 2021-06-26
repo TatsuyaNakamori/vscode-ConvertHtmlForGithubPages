@@ -19,5 +19,21 @@
     "htmlgithubpages.task.toHTML.label": "GitHub Pages用のHTMLに変換する",
     "htmlgithubpages.task.toHTML.getconfig.error": "設定が読み込めませんでした。",
 
+    "htmlgithubpages.task.tohtml.start": "処理開始...",
+    "htmlgithubpages.task.tohtml.end": "処理を終了します。",
+    "htmlgithubpages.task.tohtml.end.success": "正常に処理が終了しました。",
+    "htmlgithubpages.task.tohtml.checkConfig": "変換の設定をチェックします。",
+    "htmlgithubpages.task.tohtml.checkConfig.source": "    コピー元のディレクトリをチェックします。",
+    "htmlgithubpages.task.tohtml.checkConfig.target": "    コピー先のディレクトリをチェックします。",
+    "htmlgithubpages.task.tohtml.checkConfig.giturl": "    GitHub PagesのURLの書式を確認します。",
+    "htmlgithubpages.task.tohtml.checkConfig.source.error": "    コピー元のディレクトリで問題が起こりました。",
+    "htmlgithubpages.task.tohtml.checkConfig.target.error": "    コピー先のディレクトリで問題が起こりました。",
+    "htmlgithubpages.task.tohtml.checkConfig.giturl.error": "    GitHub PagesのURLの書式で問題が起こりました。",
+    "htmlgithubpages.task.tohtml.checkConfig.ok": "変換設定のチェックが終わりました。",
+    "htmlgithubpages.task.tohtml.emptyDir": "コピー先のディレクトリを空にします。",
+    "htmlgithubpages.task.tohtml.copyDir": "ファイルをコピーします。",
+    "htmlgithubpages.task.tohtml.fetchFiles": "コピーしたファイルをフェッチします。",
+    "htmlgithubpages.task.tohtml.insertBaseTag": "HTMLファイルに<base>タグを挿入します。",
+
     "htmlgithubpages.conf.converthtmlforgithubpages.settings": "コンバートするデータフォルダと、出力するフォルダを指定します。"
 }

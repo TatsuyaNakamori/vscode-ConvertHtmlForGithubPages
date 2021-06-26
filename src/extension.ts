@@ -19,11 +19,6 @@ export function activate(_context: vscode.ExtensionContext): void {
     }
 
     const workspaceFolder:string = workspaceFolders[0].uri.fsPath;
-    console.log("workspaceFolders");
-    console.log(workspaceFolders);
-    console.log("workspaceFolder");
-    console.log(workspaceFolder);
-
     taskProvider = vscode.tasks.registerTaskProvider(
         GithubPagesTaskProvider.taskType,
         new GithubPagesTaskProvider(workspaceFolder)

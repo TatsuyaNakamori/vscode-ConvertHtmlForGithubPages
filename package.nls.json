@@ -19,5 +19,21 @@
     "htmlgithubpages.task.toHTML.label": "Convert to HTML for GitHub Pages",
     "htmlgithubpages.task.toHTML.getconfig.error": "Could not load configuration.",
 
+    "htmlgithubpages.task.tohtml.start": "Start the process.",
+    "htmlgithubpages.task.tohtml.end": "End of process.",
+    "htmlgithubpages.task.tohtml.end.success": "Successfully completed.",
+    "htmlgithubpages.task.tohtml.checkConfig": "Check the conversion settings.",
+    "htmlgithubpages.task.tohtml.checkConfig.source": "    Check the source directory.",
+    "htmlgithubpages.task.tohtml.checkConfig.target": "    Check the destination directory.",
+    "htmlgithubpages.task.tohtml.checkConfig.giturl": "    Check the format of the URL in GitHub Pages.",
+    "htmlgithubpages.task.tohtml.checkConfig.source.error": "    A problem occurred in the source directory.",
+    "htmlgithubpages.task.tohtml.checkConfig.target.error": "    A problem occurred in the destination directory.",
+    "htmlgithubpages.task.tohtml.checkConfig.giturl.error": "    There was a problem with the format of the URL in GitHub Pages.",
+    "htmlgithubpages.task.tohtml.checkConfig.ok": "Finish checking the conversion settings.",
+    "htmlgithubpages.task.tohtml.emptyDir": "Empty the destination directory.",
+    "htmlgithubpages.task.tohtml.copyDir": "Copy the file.",
+    "htmlgithubpages.task.tohtml.fetchFiles": "Fetch the copied file.",
+    "htmlgithubpages.task.tohtml.insertBaseTag": "Insert the <base> tag into the HTML file.",
+
     "htmlgithubpages.conf.converthtmlforgithubpages.settings": "Specify the data folder to be converted and the folder to be output."
 }

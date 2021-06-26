@@ -404,7 +404,7 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
 
                 const lastIndex   = match.index + 6;  // "<head>".length == 6
                 const before_head = contents.slice(0, lastIndex);
-                const base_tag    = `  <base href=\"${href}\">`;
+                const base_tag    = `  <base href=\"${href}\" charset="utf-8"/>`;
                 const after_head  = contents.slice(lastIndex);
                 const newContents = `${before_head}\n${base_tag}${after_head}`;
 

@@ -378,10 +378,10 @@ class GithubPagesTaskTerminal implements vscode.Pseudoterminal {
                     continue
                 }
 
-                let href = "";
-                const relPath = file.path.replace(target, ".");
-                href = path.join(gitUrl, relPath);
+                const relPath = path.relative(target, file.path)
+                let href = `${gitUrl}/${relPath}`;
                 href = href.replace(/\\/g, "/");
+                href = href.replace(/(?<!https:)\/\//g, "/");
 
                 pairsOfHtmlUrlList.push([file.path, href]);
             }

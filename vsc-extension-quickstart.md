@@ -40,3 +40,27 @@
  * Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
  * [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VSCode extension marketplace.
  * Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+
+
+
+
+===============================================
+This is the README for your extension "htmlgithubpages". After writing up a brief description, we recommend including the following sections.
+
+## Features
+\!\[feature X\]\(images/feature-x.png\)
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Requirements
+## Extension Settings
+* `myExtension.enable`: enable/disable this extension
+* `myExtension.thing`: set to `blah` to do something
+## Known Issues
+## Release Notes
+
+### 0.0.1
+Initial release of ...
+
+-----------------------------------------------------------------------------------------------------------
+
+## Working with Markdown
+* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)

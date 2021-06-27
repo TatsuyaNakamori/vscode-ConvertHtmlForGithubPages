@@ -10,5 +10,6 @@ Other
    :caption: Contents:
 
    license
+   releaseNotes
 
 

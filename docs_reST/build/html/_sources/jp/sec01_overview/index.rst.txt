@@ -9,5 +9,6 @@
 
    overview
    firstStep
+   donations
 
 

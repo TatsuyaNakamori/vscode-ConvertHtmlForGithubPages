@@ -14,10 +14,10 @@ This extension is a tool to solve the problem of broken layout when uploading a 
 There are two problems, and these problems will be solved.<br>
 問題は2つあり、これらの問題を解決します。
 
-* GitHub Pages uses jekyll and will not reference folders with naming conventions not supported by jekyll.<br>
-GitHub Pagesはjekyllを使用しており、jekyllでサポートしていない命名規則のフォルダを参照しません。
 * You need to specify the URL on the GitHub Pages server for the CSS and other links.<br>
 CSSなどのリンクに、GitHub Pagesのサーバー上のURLを指定する必要があります。
+* GitHub Pages uses [jekyll](http://jekyllrb-ja.github.io/) for hosting by default, so it doesn't accurately read folders that are not supported by jekyll.<br>
+GitHub Pagesはデフォルトで [jekyll](http://jekyllrb-ja.github.io/) を使用してホスティングを行うため、jekyllでサポートしていないフォルダを正確に読み取ってくれない。
 
 ------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>概要 &mdash; Convert to GitHub Pages 2021-06-28 documentation</title>
+  <title>概要 &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
   
 
   
@@ -101,6 +101,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">概要</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">概要</a></li>
 <li class="toctree-l2"><a class="reference internal" href="firstStep.html">使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="donations.html">寄付のお願い</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../sec02_functions/index.html">各機能の詳細</a></li>
@@ -183,13 +184,13 @@
 <hr class="docutils" />
 <p>レイアウトが崩れる原因は2つあります。</p>
 <ul class="simple">
-<li><p>CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある。</p></li>
-<li><p>GitHub Pagesはデフォルトで <a class="reference external" href="http://jekyllrb-ja.github.io/">jekyll</a> を使用してホスティングを行うため、jekyllでサポートしていないフォルダを正確に読み取ってくれない。</p></li>
+<li><p>GitHub Pagesはデフォルトで <a class="reference external" href="http://jekyllrb-ja.github.io/">jekyll</a> を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない</p></li>
+<li><p>CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある</p></li>
 </ul>
 <p>このエクステンションは、次のように解決します。</p>
 <ul class="simple">
-<li><p>HTMLに記述されているCSSファイルなどへの相対パスを、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを使用してGitHub PagesのURLに変換します。</p></li>
-<li><p>GithHub Pagesを公開しているフォルダ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> という空ファイルを置くことで、jekyllをホスティングしないようにします。</p></li>
+<li><p>GithHub Pagesを公開するフォルダ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> という空ファイルを置くことで、jekyllをホスティングしないようにします</p></li>
+<li><p>HTMLに記述されているCSSファイルなどへの相対パスを、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを使用してGitHub PagesのURLに変換します</p></li>
 </ul>
 <hr class="docutils" />
 <div class="line-block">

@@ -11,13 +11,13 @@
 
 レイアウトが崩れる原因は2つあります。
 
-* CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある。
-* GitHub Pagesはデフォルトで `jekyll <http://jekyllrb-ja.github.io/>`_ を使用してホスティングを行うため、jekyllでサポートしていないフォルダを正確に読み取ってくれない。
+* GitHub Pagesはデフォルトで `jekyll <http://jekyllrb-ja.github.io/>`_ を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない
+* CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある
 
 このエクステンションは、次のように解決します。
 
-* HTMLに記述されているCSSファイルなどへの相対パスを、 ``<base>`` タグを使用してGitHub PagesのURLに変換します。
-* GithHub Pagesを公開しているフォルダ直下に ``.nojekyll`` という空ファイルを置くことで、jekyllをホスティングしないようにします。
+* GithHub Pagesを公開するフォルダ直下に ``.nojekyll`` という空ファイルを置くことで、jekyllをホスティングしないようにします
+* HTMLに記述されているCSSファイルなどへの相対パスを、 ``<base>`` タグを使用してGitHub PagesのURLに変換します
 
 ------------------------------------------------------------
 

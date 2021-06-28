@@ -10,6 +10,7 @@
    :caption: Contents:
 
    license
+   issues
    releaseNotes
 
 

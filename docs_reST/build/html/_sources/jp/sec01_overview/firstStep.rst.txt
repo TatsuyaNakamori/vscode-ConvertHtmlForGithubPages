@@ -28,10 +28,21 @@ GitHub Pagesではリポジトリの ``[Root]`` ディレクトリ、もしく�
       :alt: image03
       :scale: 100%
 
-4. ``ワークスペースフォルダ直下`` もしくは ``docs`` フォルダ内に ``.nojekyll`` ファイルが生成されます
+4. 次のような選択肢が出てきた場合は、 ``Never scan the task output for github pages tasks`` を選ぶと、今後この選択肢は出てこなくなります(処理の状況はTerminalに表示されますので、問題が発生した場合はどこで行ったのか、確認することができます)
+
+   .. figure:: ./../../_images/GitHubPages_doc_005.png
+      :alt: image05
+      :scale: 100%
+
+5. ``ワークスペースフォルダ直下`` もしくは ``docs`` フォルダ内に ``.nojekyll`` ファイルが生成されます
 
    * ``docs`` フォルダが存在しない場合は、自動的に作成されます
 
+6. 問題が無ければ、Terminal上で何かキーを押して、閉じてください
+
+   .. figure:: ./../../_images/GitHubPages_doc_006.png
+      :alt: image06
+      :scale: 75%
 
 .. seealso::
 
@@ -74,7 +85,19 @@ GitHub Pages用に、パスを通す
       :alt: image03
       :scale: 100%
 
-7. コピー元のディレクトリの中身が、コピー先のディレクトリにコピーされ、各HTMLファイルの ``<head>`` 内に ``<base>`` タグが挿入されます
+7. 次のような選択肢が出てきた場合は、 ``Never scan the task output for github pages tasks`` を選ぶと、今後この選択肢は出てこなくなります(処理の状況はTerminalに表示されますので、問題が発生した場合はどこで行ったのか、確認することができます)
+
+   .. figure:: ./../../_images/GitHubPages_doc_005.png
+      :alt: image05
+      :scale: 100%
+
+8. コピー元のディレクトリの中身が、コピー先のディレクトリにコピーされ、各HTMLファイルの ``<head>`` 内に ``<base>`` タグが挿入されます
+9. 問題が無ければ、Terminal上で何かキーを押して、閉じてください
+
+   .. figure:: ./../../_images/GitHubPages_doc_007.png
+      :alt: image07
+      :scale: 75%
+
 
 .. seealso::
 

@@ -7,4 +7,4 @@
 新規リリース
 
 * ``.nojekyll`` 作成機能
-* ファイルパスをGitHub PagesのURLへ置き換える機能
+* ファイルパスをGitHub PagesのURLへ置き換える機能( ``<base>`` タグの使用)

@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Specification of the Task to pass for GitHub Pages &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Other" href="../sec03_other/index.html" />
+    <link rel="prev" title="Specification of the Task to create a .nojekyll file" href="nojekyll.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Convert to GitHub Pages
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents (English):</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sec01_overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Details of each function</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nojekyll.html">Specification of the Task to create a .nojekyll file</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Specification of the Task to pass for GitHub Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sec03_other/index.html">Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contents (Japanese):</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../jp/sec01_overview/index.html">概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jp/sec02_functions/index.html">各機能の詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jp/sec03_other/index.html">その他</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Convert to GitHub Pages</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Details of each function</a> &raquo;</li>
+        
+      <li>Specification of the Task to pass for GitHub Pages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/en/sec02_functions/addBaseTag.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="specification-of-the-task-to-pass-for-github-pages">
+<h1>Specification of the Task to pass for GitHub Pages<a class="headerlink" href="#specification-of-the-task-to-pass-for-github-pages" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_009.png"><img alt="image09" src="../../_images/GitHubPages_doc_009.png" style="width: 314.0px; height: 27.0px;" /></a>
+</div>
+<p>次の処理を行います。</p>
+<ol class="arabic">
+<li><p>次の、Settings(Configuration)の内容を確認します</p>
+<ul class="simple">
+<li><p>From</p></li>
+<li><p>To</p></li>
+<li><p>URL for GitHub Pages</p></li>
+</ul>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_0041.png"><img alt="image04" src="../../_images/GitHubPages_doc_0041.png" style="width: 728.25px; height: 270.0px;" /></a>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">From</span></code> で指定したパスが存在するかどうか確認します</p>
+<ul class="simple">
+<li><p>存在しない場合は終了します (異常終了扱い)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したパスが存在するかどうか確認します</p>
+<ul class="simple">
+<li><p>存在しない場合は作成します</p></li>
+<li><p>作成出来なかった場合は終了します (異常終了扱い)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> で指定したURLを確認します</p>
+<ul class="simple">
+<li><p>プレースホルダの <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> や <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> が残っている場合は終了します (異常終了扱い)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">${DIR_NAME}</span></code> キーワードがある場合は、ワークスペースフォルダ名で置き換えます</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが存在するかどうか確認します</p>
+<ul class="simple">
+<li><p>存在の有無の情報を格納します</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したディレクトリ内のファイル/フォルダを削除します</p>
+<ul class="simple">
+<li><p>ディレクトリの中の <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルも削除されます</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">From</span></code> で指定したディレクトリのデータを、 <code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したディレクトリにコピーします</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが存在していた場合は、作り直します</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> ディレクトリ内のHTMLファイルをフェッチし、各ファイルの <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> に、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを挿入します</p></li>
+</ol>
+<hr class="docutils" />
+<p>Taskを実行した時に問題が起こった場合は、Terminalのメッセージを確認してください。
+エラーの原因を特定する唯一の方法です。</p>
+<p>[下図] Terminalに赤文字の警告文や、 <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">terminal</span> <span class="pre">process</span> <span class="pre">faild</span> <span class="pre">to</span> <span class="pre">launch</span> <span class="pre">(exit</span> <span class="pre">code:2)</span></code> のようなメッセージが表示された場合は、何か問題が起こって処理が中断された事を示しています。</p>
+<p>メッセージの内容を確認し、実行環境に問題ないか確認してください。</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_011.png"><img alt="image11" src="../../_images/GitHubPages_doc_011.png" style="width: 533.0px; height: 301.0px;" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>もし、トラブルが解決できない場合は、 <a class="reference external" href="https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues">Issues</a> に報告してください。バグなどの報告はこのページからのみ受け付けています。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../sec03_other/index.html" class="btn btn-neutral float-right" title="Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nojekyll.html" class="btn btn-neutral float-left" title="Specification of the Task to create a .nojekyll file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Tatsuya Nakamori.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

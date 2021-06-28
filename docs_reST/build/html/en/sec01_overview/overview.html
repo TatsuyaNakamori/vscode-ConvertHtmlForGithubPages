@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Install" href="install.html" />
+    <link rel="next" title="How to use" href="firstStep.html" />
     <link rel="prev" title="Overview" href="index.html" /> 
 </head>
 
@@ -93,11 +93,11 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="firstStep.html">First Step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firstStep.html">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="donations.html">Request for Donations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sec02_functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sec02_functions/index.html">Details of each function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sec03_other/index.html">Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contents (Japanese):</span></p>
@@ -176,45 +176,41 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<div class="line-block">
-<div class="line">このエクステンションは、reStructuredTextの記述をサポートします。</div>
-<div class="line">このドキュメントもreStructuredTextで記述されており、『VSCode+エクステンション』の組み合わせで書かれています。</div>
+<p>This extension is a tool to solve the problem of broken layout when uploading a web page to GitHub Pages.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_001.png"><img alt="image01" src="../../_images/GitHubPages_doc_001.png" style="width: 849.0px; height: 331.0px;" /></a>
 </div>
+<hr class="docutils" />
+<p>レイアウトが崩れる原因は2つあります。</p>
+<ul class="simple">
+<li><p>GitHub Pagesはデフォルトで <a class="reference external" href="http://jekyllrb-ja.github.io/">jekyll</a> を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない</p></li>
+<li><p>CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある</p></li>
+</ul>
+<p>このエクステンションは、次のように解決します。</p>
+<ul class="simple">
+<li><p>GithHub Pagesを公開するフォルダ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> という空ファイルを置くことで、jekyllをホスティングしないようにします</p></li>
+<li><p>HTMLに記述されているCSSファイルなどへの相対パスを、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを使用してGitHub PagesのURLに変換します</p></li>
+</ul>
 <hr class="docutils" />
 <div class="line-block">
 <div class="line">エクステンションは次の機能を提供します。</div>
-<div class="line">詳細は、 <a class="reference internal" href="../../jp/sec02_functions/index.html#id1"><span class="std std-ref">各機能の詳細</span></a> をご確認ください。</div>
+<div class="line">詳細は、 <a class="reference internal" href="firstStep.html#howtouse"><span class="std std-ref">How to use</span></a> / <a class="reference internal" href="../sec02_functions/index.html#detailsfunction"><span class="std std-ref">Details of each function</span></a> をご確認ください。</div>
 </div>
 <ul class="simple">
-<li><p>スニペット (自動補完候補)</p></li>
-<li><p>グラマー (文字のハイライト表示)</p></li>
-<li><p>記述サポート</p>
+<li><p>Task (Terminal&gt; Run Task…)</p>
 <ul>
-<li><p>ボールド</p></li>
-<li><p>イタリック</p></li>
-<li><p>インラインRaw</p></li>
-<li><p>ヘッダー</p></li>
-<li><p>リスト</p></li>
-<li><p>テーブル [グリッドテーブル]</p>
-<ul>
-<li><p>新規テーブルの作成</p></li>
-<li><p>CSV形式のテキストからテーブルの作成</p></li>
+<li><p>github pages: Convert to HTML for GitHub Pages</p></li>
+<li><p>github pages: Create a “.nojekyll” file in [./docs]</p></li>
+<li><p>github pages: Create a “.nojekyll” file in [workspaceFolder(./)]</p></li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>タスク</p>
-<ul>
-<li><p>[Sphinx] Quick Start</p></li>
-<li><p>[Sphinx] make html</p></li>
-<li><p>[Sphinx] make epub</p></li>
-<li><p>[Sphinx] make latex</p></li>
-<li><p>[Sphinx] make latexpdf</p></li>
-<li><p>[Sphinx] make clean</p></li>
-<li><p>Launch TeX Installer [Windowsのみ]</p></li>
-</ul>
-</li>
-</ul>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_002.png"><img alt="image02" src="../../_images/GitHubPages_doc_002.png" style="width: 596.0px; height: 178.0px;" /></a>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHubPages_doc_003.png"><img alt="image03" src="../../_images/GitHubPages_doc_003.png" style="width: 596.0px; height: 107.0px;" /></a>
+</div>
 </div>
 
 
@@ -223,7 +219,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="firstStep.html" class="btn btn-neutral float-right" title="How to use" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="index.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

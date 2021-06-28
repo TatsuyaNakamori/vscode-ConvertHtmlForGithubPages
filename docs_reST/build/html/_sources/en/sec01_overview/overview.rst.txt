@@ -1,38 +1,40 @@
 Overview
 ########
 
+This extension is a tool to solve the problem of broken layout when uploading a web page to GitHub Pages.
 
+.. figure:: ./../../_images/GitHubPages_doc_001.png
+   :alt: image01
+   :scale: 100%
 
-| このエクステンションは、reStructuredTextの記述をサポートします。
-| このドキュメントもreStructuredTextで記述されており、『VSCode+エクステンション』の組み合わせで書かれています。
+------------------------------------------------------------
 
+レイアウトが崩れる原因は2つあります。
 
-----
+* GitHub Pagesはデフォルトで `jekyll <http://jekyllrb-ja.github.io/>`_ を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない
+* CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある
+
+このエクステンションは、次のように解決します。
+
+* GithHub Pagesを公開するフォルダ直下に ``.nojekyll`` という空ファイルを置くことで、jekyllをホスティングしないようにします
+* HTMLに記述されているCSSファイルなどへの相対パスを、 ``<base>`` タグを使用してGitHub PagesのURLに変換します
+
+------------------------------------------------------------
 
 | エクステンションは次の機能を提供します。
-| 詳細は、 :ref:`各機能の詳細` をご確認ください。
+| 詳細は、 :ref:`howtouse` / :ref:`detailsfunction` をご確認ください。
 
-* スニペット (自動補完候補)
-* グラマー (文字のハイライト表示)
-* 記述サポート
+* Task (Terminal> Run Task...)
 
-  * ボールド
-  * イタリック
-  * インラインRaw
-  * ヘッダー
-  * リスト
-  * テーブル [グリッドテーブル]
+  * github pages: Convert to HTML for GitHub Pages
+  * github pages: Create a ".nojekyll" file in [./docs]
+  * github pages: Create a ".nojekyll" file in [workspaceFolder(./)]
 
-    * 新規テーブルの作成
-    * CSV形式のテキストからテーブルの作成
+.. figure:: ./../../_images/GitHubPages_doc_002.png
+    :alt: image02
+    :scale: 100%
 
-* タスク
-
-  * [Sphinx] Quick Start
-  * [Sphinx] make html
-  * [Sphinx] make epub
-  * [Sphinx] make latex
-  * [Sphinx] make latexpdf
-  * [Sphinx] make clean
-  * Launch TeX Installer [Windowsのみ]
+.. figure:: ./../../_images/GitHubPages_doc_003.png
+    :alt: image03
+    :scale: 100%
 

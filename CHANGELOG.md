@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "htmlgithubpages" extension will be documented in this file.
+Please check this link for all updates.
+全ての更新履歴は、こちらのリンクからご確認ください。
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## English
+* [Release Notes](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec03_other/releaseNotes.html)
 
-- Initial release
+## Japanese
+* [更新履歴](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec03_other/releaseNotes.html)
+

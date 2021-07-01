@@ -27,22 +27,24 @@ For more information on each of these, please refer to the following web pages.
 (これらのWebページはGitHub Pagesで公開されています!)
 
 ## English
-* [Main Page]()
-* [Features]()
-* [Requirements]()
-* [Extension Settings]()
-* [Known Issues]()
-* [Release Notes]()
-* [License]()
+* [Top Page](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/)
+* [Overview](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec01_overview/overview.html)
+* [How to use](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec01_overview/firstStep.html)
+* [Donations](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec01_overview/donations.html)
+* [Details of each function](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec02_functions/index.html)
+* [License](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec03_other/license.html)
+* [Report a bug](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec03_other/issues.html)
+* [Release Notes](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/en/sec03_other/releaseNotes.html)
 
 ## Japanese
-* [トップページ]()
-* [概要]()
-* [必要事項]()
-* [Extension Settings]()
-* [既知の問題]()
-* [リリースノート]()
-* [ライセンス]()
+* [トップページ](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/)
+* [概要](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec01_overview/overview.html)
+* [使い方](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec01_overview/firstStep.html)
+* [寄付のお願い](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec01_overview/donations.html)
+* [各機能の詳細](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec02_functions/index.html)
+* [ライセンス](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec03_other/license.html)
+* [バグの報告](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec03_other/issues.html)
+* [更新履歴](https://tatsuyanakamori.github.io/vscode-ConvertHtmlForGithubPages/jp/sec03_other/releaseNotes.html)
 
 ------------------------------------------------------------------------
 

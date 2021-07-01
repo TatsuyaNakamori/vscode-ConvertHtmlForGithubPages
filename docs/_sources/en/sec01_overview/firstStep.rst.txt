@@ -8,37 +8,39 @@ How to use
 Task to create a .nojekyll file
 *******************************
 
-GitHub Pagesではリポジトリの ``[Root]`` ディレクトリ、もしくは ``[Root]/docs`` ディレクトリ内のhtmlを公開することができます。
-公開するディレクトリ直下に ``.nojekyll`` という空ファイルを置くことで、jekyllをホスティングさせない事ができます。
+GitHub Pages allows you to publish html in the ``[Root]`` directory of the repository or in the ``[Root]/docs`` directory.
+You can disable hosting of jekyll by placing an empty file ``.nojekyll`` directly under the directory to be published.
 
-このエクステンションはVSCodeで開いている ``[ワークスペースフォルダ]`` 直下、もしくは ``[ワークスペースフォルダ]/docs`` フォルダ直下に ``.nojekyll`` ファイルを生成します。
+This extension will create a ``.nojekyll`` file directly under the ``[workspace folder]`` or ``[workspace folder]/docs`` folder you have open in VSCode.
 
 
-手順
-====
-1. ワークスペースフォルダ(フォルダ)を開きます( ``File> Open Folder...`` )
+Procedure
+=========
 
-   * 公開するGitのルートリポジトリを開きます
-   * 開くワークスペースフォルダは、1つだけにしてください (複数のワークスペースフォルダを開いている場合は、VSCodeが最初のインデックスとして認識しているワークスペースに対して処理が行われます)
+1. Open the workspace folder ( ``File> Open Folder...`` )
 
-2. メニューの ``Terminal> Run Task...`` を選択します
-3. ダイアログから、 ``github pages > Create a ".nojekyll" file in [workspaceFolder(./)]`` もしくは ``github pages > Create a ".nojekyll" file in [./docs]`` を選択します
+   * Open the root Git repository you want to publish.
+   * Only one workspace folder should be opened. (If you have more than one workspace folder open, the workspace that VSCode recognizes as the first index will be processed.)
+
+2. Select the menu item ``Terminal> Run Task...``
+3. From the dialog, select ``github pages > Create a ".nojekyll" file in [workspaceFolder(. /)]`` or ``github pages > Create a ".nojekyll" file in [. /docs]`` .
+
 
    .. figure:: ./../../_images/GitHubPages_doc_003.png
       :alt: image03
       :scale: 100%
 
-4. 次のような選択肢が出てきた場合は、 ``Never scan the task output for github pages tasks`` を選ぶと、今後この選択肢は出てこなくなります ( ``Never scan the task output for github pages tasks`` を選択した場合でも、処理の状況はTerminalに表示されます)
+4. If you see the following option, select ``Never scan the task output for github pages tasks`` and this option will not appear in the future (Even if you choose ``Never scan the task output for github pages tasks`` , the status of the process will still be shown in the Terminal)
 
    .. figure:: ./../../_images/GitHubPages_doc_005.png
       :alt: image05
       :scale: 100%
 
-5. ``ワークスペースフォルダ直下`` もしくは ``docs`` フォルダ内に ``.nojekyll`` ファイルが生成されます
+5. A ``.nojekyll`` file will be created in the ``workspaceFolder`` or ``docs`` folder.
 
-   * ``docs`` フォルダが存在しない場合は、自動的に作成されます
+   * If the ``docs`` folder does not exist, it will be created automatically.
 
-6. 問題が無ければ、Terminal上で何かキーを押して、閉じてください
+6. If everything is OK, press any key in Terminal to close it.
 
    .. figure:: ./../../_images/GitHubPages_doc_006.png
       :alt: image06
@@ -46,53 +48,54 @@ GitHub Pagesではリポジトリの ``[Root]`` ディレクトリ、もしく�
 
 .. seealso::
 
-   詳細な仕様は、 :ref:`各機能の詳細` をご確認ください。
+   For detailed specifications, see :ref:`detailsfunction`.
 
 ----------------------------------------------------------------------
 
 Task to pass for GitHub Pages
 ******************************
 
-このエクステンションでは、ローカルで動作確認したHTMLファイルに直接変更を加えることはできません。
-ドキュメント(HTML)を作成するフォルダと、GitHub Pagesに公開するフォルダを分けて作業してください。
+This extension does not allow you to make direct changes to HTML files that have been tested locally.
+Please work with a separate folder for the documentation (HTML) and a separate folder for publishing to GitHub Pages.
 
+Procedure
+=========
 
-手順
-====
-1. メニューの ``File> Preferences> Settings`` から、Settingsタブを開きます
-2. Settingsのカテゴリから ``Extentions> GitHub Pages`` を選択します
+1. Open the Settings tab from the menu ``File> Preferences> Settings`` .
+2. Select ``Extentions> GitHub Pages`` from the Settings category.
 
    .. figure:: ./../../_images/GitHubPages_doc_004.png
       :alt: image04
       :scale: 80%
 
-3. ``From`` にコピー元のディレクトリを指定し、 ``To`` にコピー先のディレクトリを指定します
+3. Specify the source directory as ``From`` and the destination directory as ``To`` .
 
-   * ワークスペースフォルダからの相対パスで指定することができます
-   * ``.`` 表記でカレントディレクトリ(ワークスペースフォルダ)を、 ``..`` 表記で上の階層を指定します
-   * コピー先のディレクトリが存在しない場合は自動的に作成されます
-   * 絶対パス表記でも指定可能です
+   * It can be specified relative to the workspace folder.
+   * Specify the current directory (workspace folder) using the notation ``.`` .
+   * Specifies the upper hierarchy using the ``..`` notation.
+   * If the directory to copy to does not exist, it will be created automatically.
+   * You can also specify an absolute path.
 
-4. ``URL for GitHub Pages`` には、公開先のURLを入力してください
+4. In the ``URL for GitHub Pages`` field, enter the URL you want to publish to.
 
-   * ``https://<USERNAME>.github.io/<REPOSITORY>/`` の、 ``<USERNAME>`` と ``<REPOSITORY>`` の部分を書き換えます
-   * ``<REPOSITORY>`` の部分を ``${DIR_NAME}`` という表記にすると、ワークスペースフォルダ名に置き換わります(大文字・小文字を区別します)
+   * In ``https://<USERNAME>.github.io/<REPOSITORY>/`` , rewrite the ``<USERNAME>`` and ``<REPOSITORY>`` parts.
+   * If you change ``<REPOSITORY>`` to ``${DIR_NAME}`` , it will be replaced by the workspace folder name (case-sensitive).
 
-5. メニューの ``Terminal> Run Task...`` を選択します
-6. ダイアログから、 ``github pages > Convert to HTML for GitHub Pages`` を選択します
+5. Select ``Terminal> Run Task...`` from the menu.
+6. From the dialog, select ``github pages > Convert to HTML for GitHub Pages`` .
 
    .. figure:: ./../../_images/GitHubPages_doc_003.png
       :alt: image03
       :scale: 100%
 
-7. 次のような選択肢が出てきた場合は、 ``Never scan the task output for github pages tasks`` を選ぶと、今後この選択肢は出てこなくなります ( ``Never scan the task output for github pages tasks`` を選択した場合でも、処理の状況はTerminalに表示されます)
+7. If you see the following option, select ``Never scan the task output for github pages tasks`` and this option will not appear in the future (Even if you choose ``Never scan the task output for github pages tasks`` , the status of the process will still be shown in the Terminal)
 
    .. figure:: ./../../_images/GitHubPages_doc_005.png
       :alt: image05
       :scale: 100%
 
-8. コピー元のディレクトリの中身が、コピー先のディレクトリにコピーされ、各HTMLファイルの ``<head>`` 内に ``<base>`` タグが挿入されます
-9. 問題が無ければ、Terminal上で何かキーを押して、閉じてください
+8. The contents of the source directory will be copied into the destination directory, and ``<base>`` tags will be inserted into the ``<head>`` of each HTML file.
+9. If everything is OK, press any key in Terminal to close it.
 
    .. figure:: ./../../_images/GitHubPages_doc_007.png
       :alt: image07
@@ -101,5 +104,5 @@ Task to pass for GitHub Pages
 
 .. seealso::
 
-   詳細な仕様は、 :ref:`各機能の詳細` をご確認ください。
+   For detailed specifications, see :ref:`detailsfunction`.
 

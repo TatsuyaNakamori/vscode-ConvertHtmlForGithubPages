@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Overview &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
+  <title>Overview &mdash; Convert to GitHub Pages 2021-07-01 documentation</title>
   
 
   
@@ -181,20 +181,20 @@
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_001.png"><img alt="image01" src="../../_images/GitHubPages_doc_001.png" style="width: 849.0px; height: 331.0px;" /></a>
 </div>
 <hr class="docutils" />
-<p>レイアウトが崩れる原因は2つあります。</p>
+<p>There are two reasons why the layout is broken.</p>
 <ul class="simple">
-<li><p>GitHub Pagesはデフォルトで <a class="reference external" href="http://jekyllrb-ja.github.io/">jekyll</a> を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない</p></li>
-<li><p>CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある</p></li>
+<li><p>GitHub Pages uses <a class="reference external" href="http://jekyllrb-ja.github.io/">jekyll</a> for hosting by default, so it doesn’t correctly read paths that are not supported by jekyll.</p></li>
+<li><p>The path specification for CSS and other files is different between server and local, and you need to specify the URL on the GitHub Pages server.</p></li>
 </ul>
-<p>このエクステンションは、次のように解決します。</p>
+<p>This extension solves the problem as follows.</p>
 <ul class="simple">
-<li><p>GithHub Pagesを公開するフォルダ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> という空ファイルを置くことで、jekyllをホスティングしないようにします</p></li>
-<li><p>HTMLに記述されているCSSファイルなどへの相対パスを、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを使用してGitHub PagesのURLに変換します</p></li>
+<li><p>Don’t host jekyll by putting an empty file <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> directly under the folder where you publish GithHub Pages.</p></li>
+<li><p>Convert relative paths to CSS files in HTML to GitHub Pages URLs using the <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> tag.</p></li>
 </ul>
 <hr class="docutils" />
 <div class="line-block">
-<div class="line">エクステンションは次の機能を提供します。</div>
-<div class="line">詳細は、 <a class="reference internal" href="firstStep.html#howtouse"><span class="std std-ref">How to use</span></a> / <a class="reference internal" href="../sec02_functions/index.html#detailsfunction"><span class="std std-ref">Details of each function</span></a> をご確認ください。</div>
+<div class="line">The extension provides the following functionality</div>
+<div class="line">See <a class="reference internal" href="firstStep.html#howtouse"><span class="std std-ref">How to use</span></a> / <a class="reference internal" href="../sec02_functions/index.html#detailsfunction"><span class="std std-ref">Details of each function</span></a> for details.</div>
 </div>
 <ul class="simple">
 <li><p>Task (Terminal&gt; Run Task…)</p>

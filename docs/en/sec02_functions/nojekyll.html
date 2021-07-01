@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Specification of the Task to create a .nojekyll file &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
+  <title>Specification of the Task to create a .nojekyll file &mdash; Convert to GitHub Pages 2021-07-01 documentation</title>
   
 
   
@@ -179,31 +179,31 @@
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_008.png"><img alt="image08" src="../../_images/GitHubPages_doc_008.png" style="width: 384.0px; height: 45.0px;" /></a>
 </div>
-<p>次の処理を行います。</p>
+<p>This task performs the following operations:</p>
 <ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルを作成するディレクトリが存在するか確認し、存在しなければ作成します</p>
+<li><p>Check if the directory where the <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file is to be created exists, and if not, create it.</p>
 <ul class="simple">
-<li><p>作成が失敗した場合は処理を終了します (異常終了扱い)</p></li>
+<li><p>If the creation fails, the process is terminated (treated as an abnormal termination).</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルを作成します</p>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file.</p>
 <ul class="simple">
-<li><p>既にファイルが存在していた場合は何も行いません (正常終了扱い)</p></li>
-<li><p>作成が失敗した場合は、異常終了扱いで処理を終了します</p></li>
+<li><p>If the file already exists, do nothing (treat as normal exit).</p></li>
+<li><p>If the creation fails, the process is terminated (treated as an abnormal termination).</p></li>
 </ul>
 </li>
 </ol>
 <hr class="docutils" />
-<p>Taskを実行しても <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが作成されない場合は、Terminalのメッセージを確認してください。
-エラーの原因を特定する唯一の方法です。</p>
-<p>[下図] Terminalに <code class="docutils literal notranslate"><span class="pre">[Failed]</span></code> や <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">terminal</span> <span class="pre">process</span> <span class="pre">faild</span> <span class="pre">to</span> <span class="pre">launch</span> <span class="pre">(exit</span> <span class="pre">code:2)</span></code> のようなメッセージが表示された場合は、何か問題が起こって処理が中断された事を示しています。</p>
-<p>メッセージの内容を確認し、実行環境に問題ないか確認してください。</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file is not created after running Task, check your Terminal messages.
+This is the only way to determine the cause of the error.</p>
+<p>[Figure below] If you see messages like <code class="docutils literal notranslate"><span class="pre">[Failed]</span></code> or <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">terminal</span> <span class="pre">process</span> <span class="pre">faild</span> <span class="pre">to</span> <span class="pre">launch</span> <span class="pre">(exit</span> <span class="pre">code:2)</span></code> in the terminal, it means that something went wrong and the process was interrupted.</p>
+<p>Check the contents of the message and make sure there is no problem with the execution environment.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_010.png"><img alt="image10" src="../../_images/GitHubPages_doc_010.png" style="width: 839.0px; height: 378.0px;" /></a>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>もし、トラブルが解決できない場合は、 <a class="reference external" href="https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues">Issues</a> に報告してください。バグなどの報告はこのページからのみ受け付けています。</p>
+<p>If you cannot solve a problem, please report it in <a class="reference external" href="https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues">Issues</a> . Bugs and other reports are only accepted from this page.</p>
 </div>
 </div>
 

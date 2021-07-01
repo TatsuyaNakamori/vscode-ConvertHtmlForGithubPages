@@ -9,20 +9,20 @@ This extension is a tool to solve the problem of broken layout when uploading a 
 
 ------------------------------------------------------------
 
-レイアウトが崩れる原因は2つあります。
+There are two reasons why the layout is broken.
 
-* GitHub Pagesはデフォルトで `jekyll <http://jekyllrb-ja.github.io/>`_ を使用してホスティングを行うため、jekyllでサポートしていないパスを正確に読み取ってくれない
-* CSSなどのパス指定がサーバとローカルで異なり、GitHub Pagesのサーバー上のURLを指定する必要がある
+* GitHub Pages uses `jekyll <http://jekyllrb-ja.github.io/>`_ for hosting by default, so it doesn't correctly read paths that are not supported by jekyll.
+* The path specification for CSS and other files is different between server and local, and you need to specify the URL on the GitHub Pages server.
 
-このエクステンションは、次のように解決します。
+This extension solves the problem as follows.
 
-* GithHub Pagesを公開するフォルダ直下に ``.nojekyll`` という空ファイルを置くことで、jekyllをホスティングしないようにします
-* HTMLに記述されているCSSファイルなどへの相対パスを、 ``<base>`` タグを使用してGitHub PagesのURLに変換します
+* Don't host jekyll by putting an empty file ``.nojekyll`` directly under the folder where you publish GithHub Pages.
+* Convert relative paths to CSS files in HTML to GitHub Pages URLs using the ``<base>`` tag.
 
 ------------------------------------------------------------
 
-| エクステンションは次の機能を提供します。
-| 詳細は、 :ref:`howtouse` / :ref:`detailsfunction` をご確認ください。
+| The extension provides the following functionality
+| See :ref:`howtouse` / :ref:`detailsfunction` for details.
 
 * Task (Terminal> Run Task...)
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>How to use &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
+  <title>How to use &mdash; Convert to GitHub Pages 2021-07-01 documentation</title>
   
 
   
@@ -96,11 +96,11 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">How to use</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#task-to-create-a-nojekyll-file">Task to create a .nojekyll file</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">手順</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#procedure">Procedure</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#task-to-pass-for-github-pages">Task to pass for GitHub Pages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">手順</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Procedure</a></li>
 </ul>
 </li>
 </ul>
@@ -189,35 +189,35 @@
 <span id="howtouse"></span><h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="task-to-create-a-nojekyll-file">
 <h2>Task to create a .nojekyll file<a class="headerlink" href="#task-to-create-a-nojekyll-file" title="Permalink to this headline">¶</a></h2>
-<p>GitHub Pagesではリポジトリの <code class="docutils literal notranslate"><span class="pre">[Root]</span></code> ディレクトリ、もしくは <code class="docutils literal notranslate"><span class="pre">[Root]/docs</span></code> ディレクトリ内のhtmlを公開することができます。
-公開するディレクトリ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> という空ファイルを置くことで、jekyllをホスティングさせない事ができます。</p>
-<p>このエクステンションはVSCodeで開いている <code class="docutils literal notranslate"><span class="pre">[ワークスペースフォルダ]</span></code> 直下、もしくは <code class="docutils literal notranslate"><span class="pre">[ワークスペースフォルダ]/docs</span></code> フォルダ直下に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルを生成します。</p>
-<div class="section" id="id1">
-<h3>手順<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>GitHub Pages allows you to publish html in the <code class="docutils literal notranslate"><span class="pre">[Root]</span></code> directory of the repository or in the <code class="docutils literal notranslate"><span class="pre">[Root]/docs</span></code> directory.
+You can disable hosting of jekyll by placing an empty file <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> directly under the directory to be published.</p>
+<p>This extension will create a <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file directly under the <code class="docutils literal notranslate"><span class="pre">[workspace</span> <span class="pre">folder]</span></code> or <code class="docutils literal notranslate"><span class="pre">[workspace</span> <span class="pre">folder]/docs</span></code> folder you have open in VSCode.</p>
+<div class="section" id="procedure">
+<h3>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>ワークスペースフォルダ(フォルダ)を開きます( <code class="docutils literal notranslate"><span class="pre">File&gt;</span> <span class="pre">Open</span> <span class="pre">Folder...</span></code> )</p>
+<li><p>Open the workspace folder ( <code class="docutils literal notranslate"><span class="pre">File&gt;</span> <span class="pre">Open</span> <span class="pre">Folder...</span></code> )</p>
 <ul class="simple">
-<li><p>公開するGitのルートリポジトリを開きます</p></li>
-<li><p>開くワークスペースフォルダは、1つだけにしてください (複数のワークスペースフォルダを開いている場合は、VSCodeが最初のインデックスとして認識しているワークスペースに対して処理が行われます)</p></li>
+<li><p>Open the root Git repository you want to publish.</p></li>
+<li><p>Only one workspace folder should be opened. (If you have more than one workspace folder open, the workspace that VSCode recognizes as the first index will be processed.)</p></li>
 </ul>
 </li>
-<li><p>メニューの <code class="docutils literal notranslate"><span class="pre">Terminal&gt;</span> <span class="pre">Run</span> <span class="pre">Task...</span></code> を選択します</p></li>
-<li><p>ダイアログから、 <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">a</span> <span class="pre">&quot;.nojekyll&quot;</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">[workspaceFolder(./)]</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">a</span> <span class="pre">&quot;.nojekyll&quot;</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">[./docs]</span></code> を選択します</p>
+<li><p>Select the menu item <code class="docutils literal notranslate"><span class="pre">Terminal&gt;</span> <span class="pre">Run</span> <span class="pre">Task...</span></code></p></li>
+<li><p>From the dialog, select <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">a</span> <span class="pre">&quot;.nojekyll&quot;</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">[workspaceFolder(.</span> <span class="pre">/)]</span></code> or <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">a</span> <span class="pre">&quot;.nojekyll&quot;</span> <span class="pre">file</span> <span class="pre">in</span> <span class="pre">[.</span> <span class="pre">/docs]</span></code> .</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_003.png"><img alt="image03" src="../../_images/GitHubPages_doc_003.png" style="width: 596.0px; height: 107.0px;" /></a>
 </div>
 </li>
-<li><p>次のような選択肢が出てきた場合は、 <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> を選ぶと、今後この選択肢は出てこなくなります ( <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> を選択した場合でも、処理の状況はTerminalに表示されます)</p>
+<li><p>If you see the following option, select <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> and this option will not appear in the future (Even if you choose <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> , the status of the process will still be shown in the Terminal)</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_005.png"><img alt="image05" src="../../_images/GitHubPages_doc_005.png" style="width: 435.0px; height: 127.0px;" /></a>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ワークスペースフォルダ直下</span></code> もしくは <code class="docutils literal notranslate"><span class="pre">docs</span></code> フォルダ内に <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが生成されます</p>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file will be created in the <code class="docutils literal notranslate"><span class="pre">workspaceFolder</span></code> or <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code> フォルダが存在しない場合は、自動的に作成されます</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder does not exist, it will be created automatically.</p></li>
 </ul>
 </li>
-<li><p>問題が無ければ、Terminal上で何かキーを押して、閉じてください</p>
+<li><p>If everything is OK, press any key in Terminal to close it.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_006.png"><img alt="image06" src="../../_images/GitHubPages_doc_006.png" style="width: 672.75px; height: 286.5px;" /></a>
 </div>
@@ -225,51 +225,52 @@
 </ol>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>詳細な仕様は、 <a class="reference internal" href="../../jp/sec02_functions/index.html#id1"><span class="std std-ref">各機能の詳細</span></a> をご確認ください。</p>
+<p>For detailed specifications, see <a class="reference internal" href="../sec02_functions/index.html#detailsfunction"><span class="std std-ref">Details of each function</span></a>.</p>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="task-to-pass-for-github-pages">
 <h2>Task to pass for GitHub Pages<a class="headerlink" href="#task-to-pass-for-github-pages" title="Permalink to this headline">¶</a></h2>
-<p>このエクステンションでは、ローカルで動作確認したHTMLファイルに直接変更を加えることはできません。
-ドキュメント(HTML)を作成するフォルダと、GitHub Pagesに公開するフォルダを分けて作業してください。</p>
-<div class="section" id="id2">
-<h3>手順<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>This extension does not allow you to make direct changes to HTML files that have been tested locally.
+Please work with a separate folder for the documentation (HTML) and a separate folder for publishing to GitHub Pages.</p>
+<div class="section" id="id1">
+<h3>Procedure<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>メニューの <code class="docutils literal notranslate"><span class="pre">File&gt;</span> <span class="pre">Preferences&gt;</span> <span class="pre">Settings</span></code> から、Settingsタブを開きます</p></li>
-<li><p>Settingsのカテゴリから <code class="docutils literal notranslate"><span class="pre">Extentions&gt;</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> を選択します</p>
+<li><p>Open the Settings tab from the menu <code class="docutils literal notranslate"><span class="pre">File&gt;</span> <span class="pre">Preferences&gt;</span> <span class="pre">Settings</span></code> .</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Extentions&gt;</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> from the Settings category.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_004.png"><img alt="image04" src="../../_images/GitHubPages_doc_004.png" style="width: 776.8000000000001px; height: 288.0px;" /></a>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">From</span></code> にコピー元のディレクトリを指定し、 <code class="docutils literal notranslate"><span class="pre">To</span></code> にコピー先のディレクトリを指定します</p>
+<li><p>Specify the source directory as <code class="docutils literal notranslate"><span class="pre">From</span></code> and the destination directory as <code class="docutils literal notranslate"><span class="pre">To</span></code> .</p>
 <ul class="simple">
-<li><p>ワークスペースフォルダからの相対パスで指定することができます</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> 表記でカレントディレクトリ(ワークスペースフォルダ)を、 <code class="docutils literal notranslate"><span class="pre">..</span></code> 表記で上の階層を指定します</p></li>
-<li><p>コピー先のディレクトリが存在しない場合は自動的に作成されます</p></li>
-<li><p>絶対パス表記でも指定可能です</p></li>
+<li><p>It can be specified relative to the workspace folder.</p></li>
+<li><p>Specify the current directory (workspace folder) using the notation <code class="docutils literal notranslate"><span class="pre">.</span></code> .</p></li>
+<li><p>Specifies the upper hierarchy using the <code class="docutils literal notranslate"><span class="pre">..</span></code> notation.</p></li>
+<li><p>If the directory to copy to does not exist, it will be created automatically.</p></li>
+<li><p>You can also specify an absolute path.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> には、公開先のURLを入力してください</p>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> field, enter the URL you want to publish to.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">https://&lt;USERNAME&gt;.github.io/&lt;REPOSITORY&gt;/</span></code> の、 <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> と <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> の部分を書き換えます</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> の部分を <code class="docutils literal notranslate"><span class="pre">${DIR_NAME}</span></code> という表記にすると、ワークスペースフォルダ名に置き換わります(大文字・小文字を区別します)</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">https://&lt;USERNAME&gt;.github.io/&lt;REPOSITORY&gt;/</span></code> , rewrite the <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> parts.</p></li>
+<li><p>If you change <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">${DIR_NAME}</span></code> , it will be replaced by the workspace folder name (case-sensitive).</p></li>
 </ul>
 </li>
-<li><p>メニューの <code class="docutils literal notranslate"><span class="pre">Terminal&gt;</span> <span class="pre">Run</span> <span class="pre">Task...</span></code> を選択します</p></li>
-<li><p>ダイアログから、 <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Convert</span> <span class="pre">to</span> <span class="pre">HTML</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> を選択します</p>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Terminal&gt;</span> <span class="pre">Run</span> <span class="pre">Task...</span></code> from the menu.</p></li>
+<li><p>From the dialog, select <code class="docutils literal notranslate"><span class="pre">github</span> <span class="pre">pages</span> <span class="pre">&gt;</span> <span class="pre">Convert</span> <span class="pre">to</span> <span class="pre">HTML</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> .</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_003.png"><img alt="image03" src="../../_images/GitHubPages_doc_003.png" style="width: 596.0px; height: 107.0px;" /></a>
 </div>
 </li>
-<li><p>次のような選択肢が出てきた場合は、 <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> を選ぶと、今後この選択肢は出てこなくなります ( <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> を選択した場合でも、処理の状況はTerminalに表示されます)</p>
+<li><p>If you see the following option, select <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> and this option will not appear in the future (Even if you choose <code class="docutils literal notranslate"><span class="pre">Never</span> <span class="pre">scan</span> <span class="pre">the</span> <span class="pre">task</span> <span class="pre">output</span> <span class="pre">for</span> <span class="pre">github</span> <span class="pre">pages</span> <span class="pre">tasks</span></code> , the status of the process will still be shown in the Terminal)</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_005.png"><img alt="image05" src="../../_images/GitHubPages_doc_005.png" style="width: 435.0px; height: 127.0px;" /></a>
 </div>
 </li>
-<li><p>コピー元のディレクトリの中身が、コピー先のディレクトリにコピーされ、各HTMLファイルの <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> 内に <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグが挿入されます</p></li>
-<li><p>問題が無ければ、Terminal上で何かキーを押して、閉じてください</p>
+<li><p>The contents of the source directory will be copied into the destination directory, and <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> tags will be inserted into the <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> of each HTML file.</p></li>
+<li><p>If everything is OK, press any key in Terminal to close it.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_007.png"><img alt="image07" src="../../_images/GitHubPages_doc_007.png" style="width: 696.0px; height: 409.5px;" /></a>
 </div>
@@ -277,7 +278,7 @@
 </ol>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>詳細な仕様は、 <a class="reference internal" href="../../jp/sec02_functions/index.html#id1"><span class="std std-ref">各機能の詳細</span></a> をご確認ください。</p>
+<p>For detailed specifications, see <a class="reference internal" href="../sec02_functions/index.html#detailsfunction"><span class="std std-ref">Details of each function</span></a>.</p>
 </div>
 </div>
 </div>

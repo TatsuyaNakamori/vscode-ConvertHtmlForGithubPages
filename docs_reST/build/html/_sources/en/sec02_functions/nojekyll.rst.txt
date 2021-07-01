@@ -5,25 +5,25 @@ Specification of the Task to create a .nojekyll file
    :alt: image08
    :scale: 100%
 
-次の処理を行います。
+This task performs the following operations:
 
-1. ``.nojekyll`` ファイルを作成するディレクトリが存在するか確認し、存在しなければ作成します
+1. Check if the directory where the ``.nojekyll`` file is to be created exists, and if not, create it.
 
-   * 作成が失敗した場合は処理を終了します (異常終了扱い)
+   * If the creation fails, the process is terminated (treated as an abnormal termination).
 
-2. ``.nojekyll`` ファイルを作成します
+2. Create the ``.nojekyll`` file.
 
-   * 既にファイルが存在していた場合は何も行いません (正常終了扱い)
-   * 作成が失敗した場合は、異常終了扱いで処理を終了します
+   * If the file already exists, do nothing (treat as normal exit).
+   * If the creation fails, the process is terminated (treated as an abnormal termination).
 
 ---------------------------------------------------------------------------
 
-Taskを実行しても ``.nojekyll`` ファイルが作成されない場合は、Terminalのメッセージを確認してください。
-エラーの原因を特定する唯一の方法です。
+If the ``.nojekyll`` file is not created after running Task, check your Terminal messages.
+This is the only way to determine the cause of the error.
 
-[下図] Terminalに ``[Failed]`` や ``The terminal process faild to launch (exit code:2)`` のようなメッセージが表示された場合は、何か問題が起こって処理が中断された事を示しています。
+[Figure below] If you see messages like ``[Failed]`` or ``The terminal process faild to launch (exit code:2)`` in the terminal, it means that something went wrong and the process was interrupted.
 
-メッセージの内容を確認し、実行環境に問題ないか確認してください。
+Check the contents of the message and make sure there is no problem with the execution environment.
 
 .. figure:: ./../../_images/GitHubPages_doc_010.png
    :alt: image10
@@ -31,5 +31,5 @@ Taskを実行しても ``.nojekyll`` ファイルが作成されない場合は�
 
 
 .. note::
-   もし、トラブルが解決できない場合は、 `Issues <https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues>`_ に報告してください。バグなどの報告はこのページからのみ受け付けています。
+   If you cannot solve a problem, please report it in `Issues <https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues>`_ . Bugs and other reports are only accepted from this page.
 

@@ -28,9 +28,9 @@ Welcome to Convert to GitHub Pages's documentation!
    jp/sec03_other/index
 
 
-Indices and tables
-******************
+.. Indices and tables
+.. ******************
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`

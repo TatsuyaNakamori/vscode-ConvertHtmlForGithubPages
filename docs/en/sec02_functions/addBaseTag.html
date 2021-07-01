@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Specification of the Task to pass for GitHub Pages &mdash; Convert to GitHub Pages 2021-06-29 documentation</title>
+  <title>Specification of the Task to pass for GitHub Pages &mdash; Convert to GitHub Pages 2021-07-01 documentation</title>
   
 
   
@@ -179,9 +179,9 @@
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_009.png"><img alt="image09" src="../../_images/GitHubPages_doc_009.png" style="width: 314.0px; height: 27.0px;" /></a>
 </div>
-<p>次の処理を行います。</p>
+<p>This task performs the following operations:</p>
 <ol class="arabic">
-<li><p>次の、Settings(Configuration)の内容を確認します</p>
+<li><p>In the Settings (Configuration), check the following items</p>
 <ul class="simple">
 <li><p>From</p></li>
 <li><p>To</p></li>
@@ -191,48 +191,48 @@
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_0041.png"><img alt="image04" src="../../_images/GitHubPages_doc_0041.png" style="width: 728.25px; height: 270.0px;" /></a>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">From</span></code> で指定したパスが存在するかどうか確認します</p>
+<li><p>Checks if the path specified by <code class="docutils literal notranslate"><span class="pre">From</span></code> exists.</p>
 <ul class="simple">
-<li><p>存在しない場合は終了します (異常終了扱い)</p></li>
+<li><p>Exit if it does not exist (treated as an abnormal exit).</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したパスが存在するかどうか確認します</p>
+<li><p>Checks if the path specified by <code class="docutils literal notranslate"><span class="pre">To</span></code> exists.</p>
 <ul class="simple">
-<li><p>存在しない場合は作成します</p></li>
-<li><p>作成出来なかった場合は終了します (異常終了扱い)</p></li>
+<li><p>If it doesn’t exist, create it.</p></li>
+<li><p>Exit the program if it cannot be created (treated as an abnormal exit).</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> で指定したURLを確認します</p>
+<li><p>Check the URL specified in <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">for</span> <span class="pre">GitHub</span> <span class="pre">Pages</span></code> .</p>
 <ul class="simple">
-<li><p>プレースホルダの <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> や <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> が残っている場合は終了します (異常終了扱い)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">${DIR_NAME}</span></code> キーワードがある場合は、ワークスペースフォルダ名で置き換えます</p></li>
+<li><p>Exit if any placeholder <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;REPOSITORY&gt;</span></code> remains (treated as abnormal exit).</p></li>
+<li><p>Replace the <code class="docutils literal notranslate"><span class="pre">${DIR_NAME}</span></code> keyword, if present, with the name of your workspace folder.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが存在するかどうか確認します</p>
+<li><p>Check to see if the <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file exists.</p>
 <ul class="simple">
-<li><p>存在の有無の情報を格納します</p></li>
+<li><p>Keeps information on whether or not it exists</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したディレクトリ内のファイル/フォルダを削除します</p>
+<li><p>Deletes files/folders in the directory specified by <code class="docutils literal notranslate"><span class="pre">To</span></code> .</p>
 <ul class="simple">
-<li><p>ディレクトリの中の <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルも削除されます</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file in the directory will also be removed.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">From</span></code> で指定したディレクトリのデータを、 <code class="docutils literal notranslate"><span class="pre">To</span></code> で指定したディレクトリにコピーします</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> ファイルが存在していた場合は、作り直します</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">To</span></code> ディレクトリ内のHTMLファイルをフェッチし、各ファイルの <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> に、 <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> タグを挿入します</p></li>
+<li><p>Copies the data in the directory specified by <code class="docutils literal notranslate"><span class="pre">From</span></code> to the directory specified by <code class="docutils literal notranslate"><span class="pre">To</span></code> .</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file exists, recreate it.</p></li>
+<li><p>Fetch HTML files in the <code class="docutils literal notranslate"><span class="pre">To</span></code> directory and insert <code class="docutils literal notranslate"><span class="pre">&lt;base&gt;</span></code> tags in the <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> of each file.</p></li>
 </ol>
 <hr class="docutils" />
-<p>Taskを実行した時に問題が起こった場合は、Terminalのメッセージを確認してください。
-エラーの原因を特定する唯一の方法です。</p>
-<p>[下図] Terminalに赤文字の警告文や、 <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">terminal</span> <span class="pre">process</span> <span class="pre">faild</span> <span class="pre">to</span> <span class="pre">launch</span> <span class="pre">(exit</span> <span class="pre">code:2)</span></code> のようなメッセージが表示された場合は、何か問題が起こって処理が中断された事を示しています。</p>
-<p>メッセージの内容を確認し、実行環境に問題ないか確認してください。</p>
+<p>If you encounter problems when running the Task, check the Terminal messages.
+This is the only way to determine the cause of the error.</p>
+<p>[Figure below] If you see a red warning message in the terminal or a message like <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">terminal</span> <span class="pre">process</span> <span class="pre">faild</span> <span class="pre">to</span> <span class="pre">launch</span> <span class="pre">(exit</span> <span class="pre">code:2)</span></code> , it means that something went wrong and the process was interrupted.</p>
+<p>Check the contents of the message and make sure there is no problem with the execution environment.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHubPages_doc_011.png"><img alt="image11" src="../../_images/GitHubPages_doc_011.png" style="width: 533.0px; height: 301.0px;" /></a>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>もし、トラブルが解決できない場合は、 <a class="reference external" href="https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues">Issues</a> に報告してください。バグなどの報告はこのページからのみ受け付けています。</p>
+<p>If you cannot solve a problem, please report it in <a class="reference external" href="https://github.com/TatsuyaNakamori/vscode-ConvertHtmlForGithubPages/issues">Issues</a> . Bugs and other reports are only accepted from this page.</p>
 </div>
 </div>
 

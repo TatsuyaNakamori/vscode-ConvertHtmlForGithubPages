@@ -60,7 +60,7 @@ GitHub Pages用にパスを通すTask
 手順
 ====
 1. メニューの ``File> Preferences> Settings`` から、Settingsタブを開きます
-2. Settingsのカテゴリから ``Extentions> GitHub Pages`` を選択します
+2. Settingsのカテゴリから ``Extensions> GitHub Pages`` を選択します
 
    .. figure:: ./../../_images/GitHubPages_doc_004.png
       :alt: image04

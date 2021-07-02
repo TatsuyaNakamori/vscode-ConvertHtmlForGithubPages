@@ -62,7 +62,7 @@ Procedure
 =========
 
 1. Open the Settings tab from the menu ``File> Preferences> Settings`` .
-2. Select ``Extentions> GitHub Pages`` from the Settings category.
+2. Select ``Extensions> GitHub Pages`` from the Settings category.
 
    .. figure:: ./../../_images/GitHubPages_doc_004.png
       :alt: image04
